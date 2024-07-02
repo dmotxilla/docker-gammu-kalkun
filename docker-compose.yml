@@ -2,12 +2,14 @@ version: '3.1'
 
 services:
   kalkun:
-    image: realjoshbyrnes/gammu-kalkun:0.7.1
+    image: realjoshbyrnes/gammu-kalkun:0.7.2
     restart: always
     ports:
       - 8080:80
     devices:
       - /dev/ttyUSB1:/dev/gsm-modem
+    volumes:
+      - /sys/fs/cgroup
     depends_on:
       - "kalkun-db"
 
